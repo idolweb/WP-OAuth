@@ -53,14 +53,14 @@ $update_username_result = $wpdb->update(
   array('ID' => $user_id)
 );
  
-$update_nickname_result = update_user_meta($user_id, 'nickname', $username);
+//$update_nickname_result = update_user_meta($user_id, 'nickname', $username);
 
 // apply the custom default user role:
 $role = get_option('wpoa_new_user_role');
 $update_role_result = wp_update_user(array('ID' => $user_id, 'role' => $role));
 
 // proceed if no errors were detected:
-if ($update_username_result == false || $update_nickname_result == false) {
+if ($update_username_result == false) { // || $update_nickname_result == false) {
 	// there was an error during registration, redirect and notify the user:
 	$_SESSION["WPOA"]["RESULT"] = "Could not rename the username during registration. Please contact an admin or try again later.";
 	header("Location: " . $_SESSION["WPOA"]["LAST_URL"]); exit;
