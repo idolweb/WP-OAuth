@@ -86,7 +86,6 @@ else {
 		wp_new_user_notification( $user_id, $password );
 	}
 	// finally redirect the user back to the page they were on and notify them of successful registration:
-	$_SESSION["WPOA"]["RESULT"] = "You have been registered successfully!";
-	header("Location: " . $_SESSION["WPOA"]["LAST_URL"]); exit;
+  $this->wpoa_end_login("You have been registered successfully!");
 }
 ?>
