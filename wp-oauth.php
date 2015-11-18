@@ -82,6 +82,9 @@ Class WPOA {
 		'wpoa_google_api_enabled' => 0,									// 0, 1
 		'wpoa_google_api_id' => '',										// any string
 		'wpoa_google_api_secret' => '',									// any string
+    'wpoa_idolcamp_api_enabled' => 0,									// 0, 1
+		'wpoa_idolcamp_api_id' => '',										// any string
+		'wpoa_idolcamp_api_secret' => '',									// any string
 		'wpoa_facebook_api_enabled' => 0,								// 0, 1
 		'wpoa_facebook_api_id' => '',									// any string
 		'wpoa_facebook_api_secret' => '',								// any string
@@ -710,6 +713,7 @@ Class WPOA {
 		$html .= $this->wpoa_login_button("paypal", "PayPal", $atts);
 		$html .= $this->wpoa_login_button("instagram", "Instagram", $atts);
 		$html .= $this->wpoa_login_button("battlenet", "Battlenet", $atts);
+    $html .= $this->wpoa_login_button("idolcamp", "Idolcamp", $atts);
 		if ($html == '') {
 			$html .= 'Sorry, no login providers have been enabled.';
 		}

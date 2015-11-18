@@ -492,6 +492,38 @@
 			</div> <!-- .form-padding -->
 			</div> <!-- .wpoa-settings-section -->
 			<!-- END User Registration section -->
+
+      <!-- START Login with Idolcamp section -->
+      <div id="wpoa-settings-section-login-with-idolcamp" class="wpoa-settings-section">
+      <h3>Login with Idolcamp</h3>
+      <div class='form-padding'>
+      <table class='form-table'>
+              <tr valign='top'>
+              <th scope='row'>Enabled:</th>
+              <td>
+                      <input type='checkbox' name='wpoa_idolcamp_api_enabled' value='1' <?php checked(get_option('wpoa_idolcamp_api_enabled') == 1); ?> />
+              </td>
+              </tr>
+
+              <tr valign='top'>
+              <th scope='row'>Client ID:</th>
+              <td>
+                      <input type='text' name='wpoa_idolcamp_api_id' value='<?php echo get_option('wpoa_idolcamp_api_id'); ?>' />
+              </td>
+              </tr>
+
+              <tr valign='top'>
+              <th scope='row'>Client Secret:</th>
+              <td>
+                      <input type='text' name='wpoa_idolcamp_api_secret' value='<?php echo get_option('wpoa_idolcamp_api_secret'); ?>' />
+              </td>
+              </tr>
+      </table> <!-- .form-table -->
+
+      <?php submit_button('Save all settings'); ?>
+      </div> <!-- .form-padding -->
+      </div> <!-- .wpoa-settings-section -->
+      <!-- END Login with Idolcamp section -->     
 			
 			<!-- START Login with Google section -->
 			<div id="wpoa-settings-section-login-with-google" class="wpoa-settings-section">
