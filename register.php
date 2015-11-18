@@ -40,9 +40,20 @@ if (is_wp_error($user_id)) {
 }
 
 // now try to update the username to something more permanent and recognizable:
-//$username = "user" . $user_id;
-//$update_username_result = $wpdb->update($wpdb->users, array('user_login' => $username, 'user_nicename' => $username, 'display_name' => $username), array('ID' => $user_id));
-//$update_nickname_result = update_user_meta($user_id, 'nickname', $username);
+$username = $oauth_identity["id"];
+$update_username_result = $wpdb->update(
+  $wpdb->users, 
+  array(
+    'user_login' => $username, 
+    'user_nicename' => $oauth_identity["name"], 
+    'user_email' => $oauth_identity["email"], 
+    'user_url' => $oauth_identity["link"], 
+    'display_name' => $oauth_identity["first_name"]
+  ), 
+  array('ID' => $user_id)
+);
+ 
+$update_nickname_result = update_user_meta($user_id, 'nickname', $username);
 
 // apply the custom default user role:
 $role = get_option('wpoa_new_user_role');
